@@ -95,11 +95,8 @@
     }
 
     @media (max-width: 768px) {
-      .btn-alugue-agora {
-        font-size: 1rem;
-        padding: 0.5rem 1.2rem;
-        bottom: 20px;
-      }
+      
+
 
       .hero {
         width: 90%;
@@ -408,20 +405,13 @@
   margin-bottom: 1.6rem; /* Ajustado o espaçamento */
 }
 
-.desconto-universitario .btn-conhecer {
-  background-color: var(--primary-color);
-  color: var(--white);
-  padding: 0.8rem 1.6rem; /* Ajustado o tamanho do botão */
-  border-radius: 30px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: background-color 0.3s;
-  cursor: pointer;
-}
 
-.desconto-universitario .btn-conhecer:hover {
-  background-color: var(--secondary-color);
-}
+
+
+
+
+
+
 
 
 
@@ -454,20 +444,7 @@
   margin-bottom: 2rem;
 }
 
-.desconto-melhor-idade .btn-conhecer {
-  background-color: var(--primary-color);
-  color: var(--white);
-  padding: 1rem 2rem;
-  border-radius: 30px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: background-color 0.3s;
-  cursor: pointer;
-}
 
-.desconto-melhor-idade .btn-conhecer:hover {
-  background-color: var(--secondary-color);
-}
 
 /* Pop-up */
 .popup {
@@ -623,6 +600,96 @@
 
 
 
+
+
+
+/* Estilo do slider */
+.banner-slider {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none; /* As imagens começam invisíveis */
+}
+
+/* Botões do slider */
+button {
+  position: absolute;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 18px;
+  transform: translateY(-50%);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Para telas Mobile (<=768px) */
+@media (max-width: 768px) {
+  .desktop-banners {
+    display: none; /* Esconde os banners de desktop */
+  }
+
+  .mobile-banners {
+    display: block; /* Exibe os banners de mobile */
+  }
+
+  /* Define que todas as imagens dentro do container mobile sejam visíveis */
+  .mobile-banners img {
+    display: block;
+  }
+}
+
+/* Para telas Desktop (>=769px) */
+@media (min-width: 769px) {
+  .desktop-banners {
+    display: block; /* Exibe os banners de desktop */
+  }
+
+  .mobile-banners {
+    display: none; /* Esconde os banners de mobile */
+  }
+
+  /* Define que todas as imagens dentro do container desktop sejam visíveis */
+  .desktop-banners img {
+    display: block;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </style>
 </head>
 <body>
@@ -636,44 +703,34 @@
       <a href="faq.html">FAQ</a>
     </nav>
   </header>
+
+
+
+
 <div class="banner-slider">
-  <div class="banner active">
-     <a href="uni.html">
-    <img src="banner/01.png" alt="Banner 1">
-    </a>
+  <div class="slider">
+    <!-- Imagens de Desktop -->
+    <div class="desktop-banners">
+      <img src="banner/01.png" alt="Banner 1">
+      <img src="banner/02.png" alt="Banner 2">
+      <img src="banner/03.png" alt="Banner 3">
+      <img src="banner/04.png" alt="Banner 4">
+      <img src="banner/05.png" alt="Banner 5">
+    </div>
 
-    
-  </div>
-  <div class="banner">
-     <a href="contato.html">
-    <img src="banner/02.png" alt="Banner 2">
-    </a>
+    <!-- Imagens de Mobile -->
+    <div class="mobile-banners">
+      <img src="banner/001.png" alt="Banner Mobile 1">
+      <img src="banner/002.png" alt="Banner Mobile 2">
+      <img src="banner/003.png" alt="Banner Mobile 3">
+      <img src="banner/004.png" alt="Banner Mobile 4">
+      <img src="banner/005.png" alt="Banner Mobile 5">
 
-    
+    </div>
   </div>
-  <div class="banner">
-     <a href="contato.html">
-    <img src="banner/03.png" alt="Banner 3">
-    </a>
+  
 
-    
-  </div>
-  <div class="banner">
-     <a href="contato.html">
-    <img src="banner/04.png" alt="Banner 4">
-    </a>
-
-   
-  </div>
-  <div class="banner">
-    <a href="idosos.html">
-    <img src="banner/05.png" alt="Banner 5">
-     </a>
-  </div>
 </div>
-
-
-
 
   <section class="hero">
     <h1>Hey Rent a Car, a sua locadora verde!</h1>
@@ -737,7 +794,7 @@
     <div class="banner-content">
       <h2>Desconto Universitário</h2>
       <p>Descontos de até 50% para universitários!</p>
-      <button class="btn-conhecer" id="btn-conhecer-universitario">Conhecer</button>
+      
     </div>
   </div>
 </section>
@@ -783,7 +840,7 @@
     <div class="banner-content">
       <h2>Desconto Melhor Idade</h2>
       <p>Descontos de até 50% para melhor idade 60+</p>
-      <button class="btn-conhecer" id="btn-conhecer">Conhecer</button>
+      
     </div>
   </div>
 </section>
@@ -934,49 +991,7 @@
     /* nova atualização aqui... */
 
 
-    // Abertura do pop-up desconto universitário
-const btnConhecerUniversitario = document.getElementById('btn-conhecer-universitario');
-const popupUniversitario = document.getElementById('popup-desconto-universitario');
-const closePopupUniversitario = document.getElementById('close-popup-universitario');
-
-btnConhecerUniversitario.addEventListener('click', () => {
-  popupUniversitario.style.display = 'flex';
-});
-
-// Fechar o pop-up
-closePopupUniversitario.addEventListener('click', () => {
-  popupUniversitario.style.display = 'none';
-});
-
-// Fechar o pop-up se clicar fora dele
-popupUniversitario.addEventListener('click', (e) => {
-  if (e.target === popupUniversitario) {
-    popupUniversitario.style.display = 'none';
-  }
-});
-
-
-
-    // Abertura do pop-up
-const btnConhecer = document.getElementById('btn-conhecer');
-const popup = document.getElementById('popup-desconto');
-const closePopup = document.getElementById('close-popup');
-
-btnConhecer.addEventListener('click', () => {
-  popup.style.display = 'flex';
-});
-
-// Fechar o pop-up
-closePopup.addEventListener('click', () => {
-  popup.style.display = 'none';
-});
-
-// Fechar o pop-up se clicar fora dele
-popup.addEventListener('click', (e) => {
-  if (e.target === popup) {
-    popup.style.display = 'none';
-  }
-});
+    
 
 
 
@@ -1011,14 +1026,67 @@ const cars = document.querySelectorAll('.car');
     }
   });
 
-    const banners = document.querySelectorAll('.banner-slider img');
-    let current = 0;
+    
 
-    setInterval(() => {
-      banners[current].classList.remove('active');
-      current = (current + 1) % banners.length;
-      banners[current].classList.add('active');
-    }, 4000);
+
+
+let slideIndex = 0;
+
+function showSlides() {
+  let desktopSlides = document.querySelectorAll('.desktop-banners img');
+  let mobileSlides = document.querySelectorAll('.mobile-banners img');
+
+  // Esconde todos os slides
+  desktopSlides.forEach(slide => slide.style.display = "none");
+  mobileSlides.forEach(slide => slide.style.display = "none");
+
+  // Exibe o slide no índice atual, dependendo da tela (desktop ou mobile)
+  if (window.innerWidth > 768) {
+    desktopSlides[slideIndex].style.display = "block"; // Mostra o slide de desktop
+  } else {
+    mobileSlides[slideIndex].style.display = "block"; // Mostra o slide de mobile
+  }
+}
+
+function moveSlide(n) {
+  let desktopSlides = document.querySelectorAll('.desktop-banners img');
+  let mobileSlides = document.querySelectorAll('.mobile-banners img');
+
+  slideIndex += n;
+
+  // Ajusta o slideIndex para garantir que ele esteja dentro do intervalo correto
+  if (window.innerWidth > 768) {
+    if (slideIndex >= desktopSlides.length) {
+      slideIndex = 0;
+    } else if (slideIndex < 0) {
+      slideIndex = desktopSlides.length - 1;
+    }
+  } else {
+    if (slideIndex >= mobileSlides.length) {
+      slideIndex = 0;
+    } else if (slideIndex < 0) {
+      slideIndex = mobileSlides.length - 1;
+    }
+  }
+
+  showSlides();
+}
+
+// Inicia o slider assim que a página carregar
+window.onload = function() {
+  showSlides();
+};
+
+// Avança o slider automaticamente a cada 3 segundos
+setInterval(function() {
+  moveSlide(1);
+}, 3000);
+
+
+
+
+
+
 
 
     
