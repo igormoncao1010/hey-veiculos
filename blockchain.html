@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HEY Rent a Car na Era do Blockchain</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #006400;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .banner {
+      width: 100%;
+      max-height: 400px;
+      overflow: hidden;
+    }
+
+    .banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      border-radius: 8px;
+    }
+
+    article {
+      padding: 2rem;
+    }
+
+    article h2 {
+      color: #006400;
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    article p {
+      margin-bottom: 1.2rem;
+      text-align: justify;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      article {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Especial | Tecnologia e Inovação</h1>
+  </header>
+
+  <div class="banner">
+    <img src="materia/02.jpg" alt="Banner da matéria sobre blockchain">
+  </div>
+
+  <main>
+    <article>
+      <h2>HEY Rent a Car na era do Blockchain</h2>
+      <p>
+        Antes de adentrarmos na contextualização histórica, é essencial definirmos os
+principais conceitos relacionados à utilização da tecnologia blockchain, a qual
+adotamos como base para a implementação de um sistema de registro
+distribuído.
+      </p>
+
+      <h1>Definição 1 – Registro Distribuído (Distributed Ledger):</h1>
+      <p>
+Um registro distribuído consiste, para nós, em um sistema de armazenamento
+de transações em formato de "somente anexação", distribuído entre múltiplas
+máquinas. O termo "somente anexação" refere-se ao fato de que novas
+transações podem ser adicionadas ao sistema, mas não é permitido excluir ou
+modificar registros anteriores. Uma nova transação pode reverter os efeitos de
+uma anterior, mas ambas permanecem registradas no livro-razão, garantindo a
+rastreabilidade, a auditabilidade e a integridade duradoura das informações.
+      </p>
+
+       <h1>Definição 2 – Blockchain:</h1>
+      <p>
+        Uma blockchain é uma forma específica de registro distribuído, estruturado
+como uma cadeia de blocos interligados. Cada bloco contém um conjunto
+ordenado de transações. Na maioria das implementações, utiliza-se hash
+criptográfico para assegurar a integridade da ligação entre um bloco e seu
+antecessor.
+      </p>
+
+       <h1>Definição 3 – Sistema Blockchain:</h1>
+      <p>
+        Um sistema blockchain, no contexto de nossa empresa, é composto por:
+        <br> <br>
+(i) uma rede de máquinas interligadas, denominadas nós; <br>
+(ii) uma estrutura de dados replicada em toda a rede, conhecida como
+blockchain;  <br>
+(iii) um protocolo de rede que estabelece os direitos, deveres e os mecanismos
+de comunicação, verificação, validação e consenso entre os nós. <br> <br>
+Esse protocolo também inclui regras para autorização e autenticação de
+transações, inserção de novos blocos, incentivos (quando aplicável), entre
+outros aspectos operacionais. Os exemplos mais conhecidos de sistemas
+blockchain são o Bitcoin e o Ethereum, ambos de natureza pública.
+      </p>
+      
+
+
+       <h1>Definição 4 – Blockchain Pública:</h1>
+      <p>
+        Uma blockchain pública é caracterizada por:<br><br>
+(i) possuir uma rede aberta, na qual os nós podem ingressar ou se retirar
+livremente, sem necessidade de permissão;<br>
+(ii) permitir que todos os nós completos verifiquem os dados inseridos na
+estrutura, incluindo blocos, transações e seus efeitos;<br>
+(iii) contar com um mecanismo de incentivo que assegura o correto
+funcionamento do sistema, promovendo a validação de transações legítimas e
+a rejeição das inválidas.<br><br>
+Tais blockchains operam de maneira descentralizada, com foco na gestão de
+ativos de valor, como criptomoedas (Bitcoin e Ether) e tokens digitais. Nesse
+modelo, os nós não depositam confiança uns nos outros; por isso, todos os nós
+completos realizam verificações independentes, o que, apesar de gerar
+redundância computacional, é fundamental para manter a integridade do
+sistema.<br><br>
+Em ambientes corporativos, como o da HEY Rent a Car, onde os nós são
+conhecidos e controlados por acordos internos ou contratos organizacionais, é
+possível operar com premissas de confiança menos rigorosas. Isso viabiliza a
+utilização de sistemas blockchain com configurações mais flexíveis.
+      </p>
+
+
+       <h1>Definição 5 – Plataforma Blockchain:</h1>
+      <p>
+        Uma plataforma blockchain refere-se ao conjunto de tecnologias necessárias
+para operar uma blockchain. Isso inclui o software cliente utilizado pelos nós, o
+armazenamento local de dados e eventuais clientes alternativos (como
+aplicativos móveis) que acessam a rede. Uma plataforma blockchain deve,
+obrigatoriamente, possuir um software cliente capaz de realizar a propagação
+de transações e a criação de blocos. Clientes "leves", que não mantêm cópia
+integral da blockchain, também podem existir, assim como clientes alternativos,
+desde que o protocolo seja bem definido.<br><br>
+As transações registradas em uma blockchain vão além da simples troca de
+ativos. Em sistemas mais avançados, é possível armazenar e executar
+programas diretamente na blockchain, denominados contratos inteligentes.
+      </p>
+
+      <h1>Definição 6 – Contrato Inteligente (Smart Contract):</h1>
+      <p>
+        Contratos inteligentes são programas registrados como dados no livro-razão da
+blockchain, executados durante a validação de transações. Esses contratos
+podem controlar e transferir ativos digitais gerenciados pela blockchain, além
+de interagir com outros contratos inteligentes. O código de um contrato
+inteligente é determinístico e imutável após sua implantação.<br><br>
+
+Enquanto a blockchain do Bitcoin permite apenas contratos simples,
+plataformas como Ethereum oferecem suporte a linguagens de programação
+completas (Turing-completas), possibilitando a criação de aplicações
+complexas.<br><br>
+
+Dessa forma, a blockchain deixa de ser apenas um banco de dados distribuído
+e se torna uma plataforma computacional geral. Apesar de ainda enfrentar
+limitações práticas quanto à complexidade computacional, essa característica
+amplia significativamente seu potencial de aplicação e inovação.<br><br>
+
+No âmbito da HEY Rent a Car, os contratos inteligentes serão empregados
+para gerenciar a propriedade de ativos digitais representados por criptomoedas
+ou tokens, implementados diretamente na blockchain. Embora nem sempre
+vinculados a contratos jurídicos, esses mecanismos podem ser utilizados para
+automatizar ou monitorar a execução de cláusulas contratuais específicas.
+      </p>
+
+    
+    </article>
+  </main>
+
+  <footer>
+    © 2025 - Redação Inovação
+  </footer>
+</body>
+</html>

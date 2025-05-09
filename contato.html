@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Proposta - Hey! Rent a Car</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --verde-principal: #25D366;
+      --verde-hover: #1ebe5d;
+      --branco: #ffffff;
+      --cinza-claro: #f0f0f0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('back/fundo.png') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.97);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      width: 100%;
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--verde-principal);
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 16px;
+      margin-bottom: 30px;
+      color: #555;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+      color: #333;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: var(--cinza-claro);
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--verde-principal);
+      outline: none;
+      background-color: #fff;
+      box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.2);
+    }
+
+    .car-block {
+      padding: 20px;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      background-color: #f4fef8;
+      margin-bottom: 25px;
+    }
+
+    button {
+      background-color: var(--verde-principal);
+      color: var(--branco);
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      width: 100%;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--verde-hover);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Hey! Rent a Car</h1>
+  <h2>Solicite sua proposta de aluguel</h2>
+  <form id="aluguelForm">
+
+    <!-- Dados Pessoais -->
+    <label for="nome">Nome Completo</label>
+    <input type="text" id="nome" placeholder="Seu nome" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="seu@email.com" required>
+
+    <label for="telefone">Telefone</label>
+    <input type="tel" id="telefone" placeholder="(00) 00000-0000" required>
+
+    <!-- Dados do Carro -->
+    <div class="car-block">
+      <strong style="color: #333;">Carro Elétrico</strong>
+
+      <label for="modelo">Modelo</label>
+      <select id="modelo" required>
+        <option value="">Selecione o modelo</option>
+        <option>Tesla Model 3</option>
+        <option>BYD Dolphin</option>
+        <option>Nissan Leaf</option>
+        <option>Chevrolet Bolt</option>
+        <option>Fiat 500e</option>
+      </select>
+
+      <label for="cor">Cor</label>
+      <input type="text" id="cor" placeholder="Ex: Branco, Preto..." required>
+
+      <label for="data">Data de Retirada</label>
+      <input type="date" id="data" required>
+    </div>
+
+    <button type="submit">Solicitar Proposta via WhatsApp</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById("aluguelForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const telefone = document.getElementById("telefone").value;
+    const modelo = document.getElementById("modelo").value;
+    const cor = document.getElementById("cor").value;
+    const data = document.getElementById("data").value;
+
+    const mensagem = `🚗 *Solicitação de Proposta - Hey! Rent a Car*\n\n` +
+                     `👤 *Nome:* ${nome}\n📧 *Email:* ${email}\n📱 *Telefone:* ${telefone}\n\n` +
+                     `🚙 *Carro Elétrico:*\nModelo: ${modelo}\nCor: ${cor}\nData de retirada: ${data}`;
+
+    const numero = "5561996067198";
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, "_blank");
+  });
+</script>
+
+</body>
+</html>

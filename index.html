@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hey Rent a Car</title>
+
+
+  <!-- Fonte alternativa à Coolvetica -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #00a550;
+      --secondary-color: #007e3a;
+      --background: #f7f9f9;
+      --text-color: #1f1f1f;
+      --white: #ffffff;
+      --star-color: #ffc107;
+      --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      --radius: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: var(--background);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--white);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--card-shadow);
+    }
+
+    .logo img {
+      height: 48px;
+    }
+
+    nav a {
+      color: var(--text-color);
+      margin-left: 2rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary-color);
+    }
+
+    .banner-slider {
+      position: relative;
+      width: 100%;
+      max-height: 400px;
+      overflow: hidden;
+    }
+
+    .banner-slider img {
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: cover;
+      display: none;
+     
+    }
+
+    .banner-slider img.active {
+      display: block;
+      opacity: 1;
+    }
+
+    
+
+    @keyframes pulse-btn {
+      0% {
+        box-shadow: 0 0 0 0 rgba(0, 165, 80, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(0, 165, 80, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(0, 165, 80, 0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .btn-alugue-agora {
+        font-size: 1rem;
+        padding: 0.5rem 1.2rem;
+        bottom: 20px;
+      }
+
+      .hero {
+        width: 90%;
+        padding: 1.5rem 1rem;
+      }
+
+      .hero h1 {
+        font-size: 1rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .testimonials {
+        flex-direction: column;
+        padding: 2rem 1rem;
+      }
+
+      .testimonial {
+        max-width: 100%;
+      }
+    }
+
+    /* resto do CSS mantido igual... */
+
+    /* Tarja verde com fonte Orbitron */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      padding: 0.8rem 2rem;
+      text-align: center;
+      color: var(--white);
+      width: 100%;
+      margin: 0 auto;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+    }
+
+    .differentials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+      background: var(--background);
+    }
+
+    .differential {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+      transition: transform 0.3s;
+    }
+
+    .differential:hover {
+      transform: translateY(-5px);
+    }
+
+    .differential h3 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .car-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+    }
+
+    .car {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1rem;
+      box-shadow: var(--card-shadow);
+      text-align: center;
+    }
+
+    .car img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .car h3 {
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonials {
+      padding: 4rem 2rem;
+      background: #ffffff;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .testimonial {
+      background: #e6f9ec;
+      border-left: 5px solid var(--primary-color);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex: 1;
+      max-width: 500px;
+    }
+
+    .testimonial img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .testimonial-content {
+      flex: 1;
+    }
+
+    .testimonial-name {
+      font-weight: bold;
+    }
+
+    .testimonial-city {
+      font-size: 0.875rem;
+      color: #555;
+    }
+
+    .stars {
+      color: var(--star-color);
+    }
+
+    footer {
+      background: var(--secondary-color);
+      color: var(--white);
+      padding: 2rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .footer-content iframe {
+      width: 100%;
+      border-radius: var(--radius);
+    }
+
+    .footer-info {
+      text-align: center;
+    }
+
+    .footer-info p {
+      margin-bottom: 1rem;
+    }
+
+    .social img,
+    .payments img,
+    .seals img {
+      height: 36px;
+      margin: 0 0.5rem;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      border-radius: 50%;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      animation: pulse 2s infinite;
+    }
+
+    .whatsapp-float img {
+      width: 30px;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+.car-title {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+  background-color: var(--background);
+}
+
+.car-title h2 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  font-family: 'Orbitron', sans-serif;
+}
+
+.banners-section {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.banner-with-text {
+  flex: 1 1 45%;
+  min-width: 300px;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-content {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+  border-radius: var(--radius);
+  max-width: 90%;
+}
+
+.banner-content h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.banner-content p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.btn-banner {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 0.6rem 1.4rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-banner:hover {
+  background-color: var(--secondary-color);
+}
+ /* nova atualização aqui... */
+
+
+ /* Seção Desconto Universitário */
+.desconto-universitario {
+  background-image: url('mini banner/02.jpg'); /* Altere para a URL da imagem desejada */
+  background-size: cover;
+  background-position: center;
+  padding: 4.8rem 2rem; /* Diminuído o padding em 20% */
+  text-align: center;
+  color: var(--white);
+}
+
+.desconto-universitario .banner-content {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1.6rem; /* Diminuído o padding em 20% */
+  border-radius: var(--radius);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.desconto-universitario .banner-content h2 {
+  font-size: 2rem; /* Diminuído o tamanho da fonte em 20% */
+  margin-bottom: 1rem;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.desconto-universitario .banner-content p {
+  font-size: 1rem; /* Diminuído o tamanho da fonte em 20% */
+  margin-bottom: 1.6rem; /* Ajustado o espaçamento */
+}
+
+.desconto-universitario .btn-conhecer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 0.8rem 1.6rem; /* Ajustado o tamanho do botão */
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.desconto-universitario .btn-conhecer:hover {
+  background-color: var(--secondary-color);
+}
+
+
+
+/* Banner Desconto Melhor Idade */
+.desconto-melhor-idade {
+  background-image: url('mini banner/01.jpg'); /* Altere para a URL da imagem desejada */
+  background-size: cover;
+  background-position: center;
+  padding: 6rem 2rem;
+  text-align: center;
+  color: var(--white);
+}
+
+.desconto-melhor-idade .banner-content {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  border-radius: var(--radius);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.desconto-melhor-idade .banner-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.desconto-melhor-idade .banner-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.desconto-melhor-idade .btn-conhecer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.desconto-melhor-idade .btn-conhecer:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Pop-up */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.popup-content {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius);
+  max-width: 600px;
+  width: 90%;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.popup-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.popup-content ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 1.5rem;
+}
+
+.popup-content li {
+  margin-bottom: 0.5rem;
+}
+
+.popup-content .close-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.popup-content .close-popup:hover {
+  background: #cc0000;
+}
+
+
+.metaverso-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 16px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Seção de Notícias */
+.news-section {
+  background: #f9f9f9;
+  padding: 60px 20px;
+  font-family: 'Georgia', serif;
+}
+
+.news-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.news-header h2 {
+  font-size: 32px;
+  color: #1b1b1b;
+  margin-bottom: 5px;
+}
+
+.news-header hr {
+  width: 60px;
+  height: 3px;
+  background-color: #2e7d32;
+  border: none;
+  margin: 0 auto;
+}
+
+.news-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.news-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 450px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+}
+
+.news-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.news-content {
+  padding: 20px;
+}
+
+.news-content .headline {
+  font-size: 20px;
+  color: #2e7d32;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.news-content p {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.news-content a {
+  display: inline-block;
+  margin-top: 12px;
+  color: #2e7d32;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.news-content a:hover {
+  text-decoration: underline;
+}
+
+
+
+  </style>
+</head>
+<body>
+  <header>
+<link rel="icon" href="logos/icon.ico" type="image/x-icon">
+
+    <div class="logo"><img src="logos/logo.png" alt="Logo Hey Rent" /></div>
+    <nav>
+      <a href="sobre.html">Sobre nós</a>
+      <a href="contato.html">Contato</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+  </header>
+<div class="banner-slider">
+  <div class="banner active">
+     <a href="uni.html">
+    <img src="banner/01.png" alt="Banner 1">
+    </a>
+
+    
+  </div>
+  <div class="banner">
+     <a href="contato.html">
+    <img src="banner/02.png" alt="Banner 2">
+    </a>
+
+    
+  </div>
+  <div class="banner">
+     <a href="contato.html">
+    <img src="banner/03.png" alt="Banner 3">
+    </a>
+
+    
+  </div>
+  <div class="banner">
+     <a href="contato.html">
+    <img src="banner/04.png" alt="Banner 4">
+    </a>
+
+   
+  </div>
+  <div class="banner">
+    <a href="idosos.html">
+    <img src="banner/05.png" alt="Banner 5">
+     </a>
+  </div>
+</div>
+
+
+
+
+  <section class="hero">
+    <h1>Hey Rent a Car, a sua locadora verde!</h1>
+  </section>
+
+
+
+  <section class="differentials">
+    <div class="differential">
+      <h3>Menos Impacto Ambiental</h3>
+      <p>Com os carros elétricos, você contribui diretamente para a redução de emissões de CO2.</p>
+    </div>
+    <div class="differential">
+      <h3>Economia de Combustível</h3>
+      <p>Os carros elétricos têm custos de manutenção e carregamento bem mais baixos.</p>
+    </div>
+    <div class="differential">
+      <h3>Silêncio e Conforto</h3>
+      <p>Condução suave, silenciosa e sem vibrações — uma experiência moderna.</p>
+    </div>
+    <div class="differential">
+      <h3>Inovação e Tecnologia</h3>
+      <p>Recursos modernos, conectividade e o melhor da mobilidade elétrica.</p>
+    </div>
+  </section>
+
+  <section class="car-title">
+  <h2>Conheça nossa frota!</h2>
+</section>
+
+
+  <section class="car-list">
+  <div class="car">
+    <img src="carros/tesla.png" alt="Tesla Model 3" />
+    <h3>EH7</h3>
+    <p>Sedan de luxo com grande autonomia para viagens longas ou para poucas recargas na semana.</p>
+   
+  </div>
+
+  <div class="car">
+    <img src="carros/leaf.png" alt="Nissan Leaf" />
+    <h3>E-QM5</h3>
+    <p>Eficiente e robusto como um elétrico de verdade deve ser.</p>
+    
+  </div>
+
+  <div class="car">
+    <img src="carros/bolt.png" alt="Chevy Bolt" />
+    <h3>E-HS9</h3>
+    <p>SUV de luxo com grande autonomia para viagens em família.</p>
+    <a href="https://www.hongqi-auto.com/3D/abbr/3Dexhibition/ehs9_720/index.html" class="metaverso-button">METAVERSO</a>
+  </div>
+</section>
+
+
+  
+
+
+  <section class="desconto-universitario">
+  <div class="banner-com-imagem">
+    <div class="banner-content">
+      <h2>Desconto Universitário</h2>
+      <p>Descontos de até 50% para universitários!</p>
+      <button class="btn-conhecer" id="btn-conhecer-universitario">Conhecer</button>
+    </div>
+  </div>
+</section>
+
+<!-- Pop-up Desconto Universitário -->
+<div id="popup-desconto-universitario" class="popup">
+  <div class="popup-content">
+    <button id="close-popup-universitario" class="close-popup">×</button>
+    <h2>🎓 CNH UNIVERSITÁRIA 🚗</h2>
+    <p><strong>A PRIMEIRA DO BRASIL!</strong></p>
+
+    <h3>✅ 50% DE DESCONTO na locação de veículos para estudantes universitários!</h3>
+
+    <h3>🧑‍🎓 Você estuda. A gente acelera o seu caminho!</h3>
+
+    <p><strong>📌 Vantagens:</strong></p>
+    <ul>
+      <li>Desconto REAL</li>
+      <li>Benefício LEGÍTIMO</li>
+      <li>Reconhecimento para quem está construindo o futuro</li>
+    </ul>
+
+    <p><strong>📚 Inspirado no Estatuto da Juventude e na Lei da Meia-Entrada.</strong></p>
+
+    <p><strong>🛡️ Mobilidade acessível, sem enrolação:</strong></p>
+    <ul>
+      <li>Sem fraudes</li>
+      <li>Sem burocracia</li>
+      <li>Total segurança</li>
+    </ul>
+
+    <p><strong>🔒 100% seguro</strong></p>
+    <p><strong>🔥 Válido em todo o Brasil</strong></p>
+
+    <p><strong>🚀 Solicite agora e economize HOJE!</strong></p>
+  </div>
+</div>
+<br>
+
+
+  <section class="desconto-melhor-idade">
+  <div class="banner-com-imagem">
+    <div class="banner-content">
+      <h2>Desconto Melhor Idade</h2>
+      <p>Descontos de até 50% para melhor idade 60+</p>
+      <button class="btn-conhecer" id="btn-conhecer">Conhecer</button>
+    </div>
+  </div>
+</section>
+
+<!-- Pop-up -->
+<div id="popup-desconto" class="popup">
+  <div class="popup-content">
+    <button id="close-popup" class="close-popup">×</button>
+    <h2>🚗💥 GERAÇÃO X MAIS 💥🚗</h2>
+    <p><strong>50% DE DESCONTO</strong> para quem tem 60 anos ou mais!</p>
+
+    <h3>🎉 Viajar não tem idade!</h3>
+
+    <p><strong>📌 Por que aproveitar?</strong></p>
+    <ul>
+      <li>Liberdade e conforto</li>
+      <li>Reviva momentos ou crie novas memórias</li>
+      <li>Viaje mais gastando menos!</li>
+    </ul>
+
+    <p><strong>📌 Como garantir?</strong></p>
+    <ul>
+      <li>Cadastre-se na plataforma</li>
+      <li>Solicite a CNH do Idoso</li>
+      <li>Apresente um documento com idade (RG ou INSS)</li>
+    </ul>
+
+    <p><strong>⚡ Vantagem Exclusiva:</strong><br> Mobilidade com conforto, segurança e economia.</p>
+
+    <p><strong>⏰ A hora é agora!</strong></p>
+    <p><strong>🌟 HEY Rent A Car – Viaje com liberdade!</strong></p>
+  </div>
+</div>
+
+
+
+
+
+  <section class="testimonials">
+    <div class="testimonial">
+      <img src="clientes/joão.jfif" alt="Cliente João" />
+      <div class="testimonial-content">
+        <div class="testimonial-name">João Silva</div>
+        <div class="testimonial-city">Lago Sul</div>
+        <div class="stars">★★★★★</div>
+        <p>Serviço excelente! O carro chegou limpo e carregado. Voltarei a alugar com certeza.</p>
+      </div>
+    </div>
+    <div class="testimonial">
+      <img src="clientes/maria.jfif" alt="Cliente Maria" />
+      <div class="testimonial-content">
+        <div class="testimonial-name">Maria Oliveira</div>
+        <div class="testimonial-city">Samambaia</div>
+        <div class="stars">★★★★☆</div>
+        <p>Adorei a experiência com o carro elétrico. Muito confortável e econômico!</p>
+      </div>
+    </div>
+    <div class="testimonial">
+      <img src="clientes/helena.jfif" alt="Cliente Maria" />
+      <div class="testimonial-content">
+        <div class="testimonial-name">Helena</div>
+        <div class="testimonial-city">Ceilândia</div>
+        <div class="stars">★★★★☆</div>
+        <p>Equipe super atenciosa e carro impecável! Recomendo muito a Hey Rent.</p>
+      </div>
+    </div>
+  </section>
+
+<section class="news-section">
+  <div class="news-header">
+    <h2>Últimas Notícias</h2>
+    <hr>
+  </div>
+  <div class="news-grid">
+    <article class="news-card">
+      <img src="materia/cbio.jpg" alt="Notícia 1">
+      <div class="news-content">
+        <h3 class="headline">Compromisso da Hey - Carbono Zero</h3>
+        <p>A HEY surge em Brasília com o objetivo de tornar a cidade referência em sustentabilidade até 2030, apostando na mobilidade elétrica e na compensação de carbono por meio de créditos de descarbonização (CBIOs).</p>
+        <a href="cbio.html" target="_blank">Leia mais &raquo;</a>
+      </div>
+    </article>
+    <article class="news-card">
+      <img src="materia/blockchain.jpg" alt="Notícia 2">
+      <div class="news-content">
+        <h3 class="headline">Hey Rent a Car - Na era da Blockchain</h3>
+        <p>Na HEY Rent a Car, contratos inteligentes serão usados na blockchain para gerenciar ativos digitais como tokens e automatizar cláusulas contratuais, mesmo sem vínculo direto com contratos jurídicos.</p>
+        <a href="blockchain.html" target="_blank">Leia mais &raquo;</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+
+
+
+  <footer>
+  <div class="footer-content">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12235.983473851765!2d-47.9390754!3d-15.7886941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a33ad5a47a0d3%3A0x5bd7aa362ca971ae!2sResidencial%20C%C3%A9zanne!5e0!3m2!1spt-BR!2sbr!4v1682346329171!5m2!1spt-BR!2sbr"
+      width="100%"
+      height="200"
+      style="border:0; border-radius: 16px;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+    <div id="video-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); align-items:center; justify-content:center; z-index:200;">
+      <div style="position:relative; width:90%; max-width:800px;">
+        <button id="close-modal" style="position:absolute; top:-20px; right:-20px; background:#ff0000; border:none; border-radius:50%; width:40px; height:40px; color:#fff; font-size:20px; cursor:pointer;">×</button>
+        <iframe id="video-frame" width="100%" height="450px" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius:16px;"></iframe>
+      </div>
+    </div>
+
+    <div class="footer-info">
+      <p>&copy; 2025 Hey Rent a Car - CNPJ: 55.172.940/0001-50</p>
+      
+      <!-- Botão de Políticas de Privacidade -->
+      <a href="politicas.html" style="display:inline-block; margin:10px 0; padding:8px 16px; background:#4CAF50; color:#fff; border-radius:8px; text-decoration:none;">Políticas de Privacidade</a>
+      
+      <div class="social">
+        <a href="#"><img src="logos/instam.png" alt="Instagram" /></a>
+        <a href="#"><img src="logos/face.png" alt="Facebook" /></a>
+        <a href="#"><img src="logos/tiktok.png" alt="TikTok" /></a>
+      </div>
+      <div class="payments">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Visa.svg/1200px-Visa.svg.png" alt="Visa" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard" />
+        <img src="logos/pix.png" alt="Pix" />
+      </div>
+      <div class="seals">
+        <img src="logos/blindado.png" alt="Site Blindado" />
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <div class="whatsapp-float">
+    <a href="https://wa.me/5561996067198" target="_blank" title="Fale conosco no WhatsApp">
+      <img src="logos/wpp.png" alt="WhatsApp" />
+    </a>
+  </div>
+
+  <script>
+
+    /* nova atualização aqui... */
+
+
+    // Abertura do pop-up desconto universitário
+const btnConhecerUniversitario = document.getElementById('btn-conhecer-universitario');
+const popupUniversitario = document.getElementById('popup-desconto-universitario');
+const closePopupUniversitario = document.getElementById('close-popup-universitario');
+
+btnConhecerUniversitario.addEventListener('click', () => {
+  popupUniversitario.style.display = 'flex';
+});
+
+// Fechar o pop-up
+closePopupUniversitario.addEventListener('click', () => {
+  popupUniversitario.style.display = 'none';
+});
+
+// Fechar o pop-up se clicar fora dele
+popupUniversitario.addEventListener('click', (e) => {
+  if (e.target === popupUniversitario) {
+    popupUniversitario.style.display = 'none';
+  }
+});
+
+
+
+    // Abertura do pop-up
+const btnConhecer = document.getElementById('btn-conhecer');
+const popup = document.getElementById('popup-desconto');
+const closePopup = document.getElementById('close-popup');
+
+btnConhecer.addEventListener('click', () => {
+  popup.style.display = 'flex';
+});
+
+// Fechar o pop-up
+closePopup.addEventListener('click', () => {
+  popup.style.display = 'none';
+});
+
+// Fechar o pop-up se clicar fora dele
+popup.addEventListener('click', (e) => {
+  if (e.target === popup) {
+    popup.style.display = 'none';
+  }
+});
+
+
+
+const cars = document.querySelectorAll('.car');
+  const modal = document.getElementById('video-modal');
+  const videoFrame = document.getElementById('video-frame');
+  const closeModal = document.getElementById('close-modal');
+
+  const videoLinks = [
+    'https://www.youtube.com/embed/41rHzFtVElg?si=eoFB9ysIaHzwop35', // Para o EH7
+    'https://www.youtube.com/embed/WCK234ac06A?si=dPZjQxRiab4Xpt2Z', // Para o E-QM5
+    'https://www.youtube.com/embed/edKWhJEVy_I?si=bGfStQRJZ_2YtlsA'  // Para o E-SH9
+  ];
+
+  cars.forEach((car, index) => {
+    car.addEventListener('click', () => {
+      videoFrame.src = videoLinks[index];
+      modal.style.display = 'flex';
+    });
+  });
+
+  closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+    videoFrame.src = ''; // Parar o vídeo ao fechar
+  });
+
+  // Opcional: fechar ao clicar fora do modal
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+      videoFrame.src = '';
+    }
+  });
+
+    const banners = document.querySelectorAll('.banner-slider img');
+    let current = 0;
+
+    setInterval(() => {
+      banners[current].classList.remove('active');
+      current = (current + 1) % banners.length;
+      banners[current].classList.add('active');
+    }, 4000);
+
+
+    
+  </script>
+
+
+</body>
+</html>
