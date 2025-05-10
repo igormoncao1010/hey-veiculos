@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hey! Rent a Car - Sobre Nós</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px; /* Aumentando o padding para mais espaço */
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      font-size: 1.1rem;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: #0a7f4f;
+    }
+
+    .nav-links a::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #0a7f4f;
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Botão Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 30px;
+      background: #333;
+      border-radius: 5px;
+      transition: transform 0.4s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Seções */
+    section {
+      padding: 80px 40px; /* Mais padding no topo e nas laterais */
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      margin-bottom: 50px; /* Mais espaço entre as seções */
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      transition: transform 0.3s ease;
+    }
+
+    section .text {
+      width: 50%;
+      text-align: left;
+      margin-right: 40px; /* Mais espaçamento entre texto e imagem */
+    }
+
+    section .image-container {
+      width: 45%;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2.8rem; /* Título maior */
+      color: #0a7f4f;
+      margin-bottom: 25px; /* Mais espaço abaixo do título */
+    }
+
+    p {
+      font-size: 1.25rem; /* Aumentando o tamanho do texto */
+      color: #555;
+      margin-bottom: 25px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .image-container img {
+      width: 100%;
+      max-width: 650px;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      background-color: #0a7f4f;
+      color: white;
+      text-align: center;
+      padding: 20px 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer p {
+      font-size: 1.1rem;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      section {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 20px; /* Menos padding nas laterais */
+      }
+
+      section .text, section .image-container {
+        width: 100%;
+        margin-right: 0;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: white;
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        padding: 15px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      section {
+        padding: 40px 20px;
+      }
+
+      h2 {
+        font-size: 2.2rem; /* Título um pouco menor em dispositivos móveis */
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .image-container img {
+        max-width: 100%;
+      }
+    }
+
+
+#quadro-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.info-box {
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 30%;
+  text-align: center;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.info-box:hover {
+  transform: scale(1.05);
+}
+
+.icon {
+  font-size: 3rem;
+  color: #0a7f4f;
+  margin-bottom: 10px;
+}
+
+.info-box h3 {
+  font-size: 1.5rem;
+  color: #0a7f4f;
+  margin-bottom: 10px;
+}
+
+.info-box button {
+  background-color: #0a7f4f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.info-box button:hover {
+  background-color: #084c33;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  width: 60%;
+  max-width: 900px;
+  text-align: left;
+}
+
+.popup h2 {
+  font-size: 2rem;
+  color: #0a7f4f;
+  margin-bottom: 20px;
+}
+
+.popup p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #0a7f4f;
+}
+
+
+/* Estilizando o botão de fechar */
+.btn-close {
+  background-color: #0a7f4f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-close:hover {
+  background-color: #084c33;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #0a7f4f;
+}
+
+
+
+
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 9999; /* garantir que fique acima do menu */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="logos/logo.png" alt="Logo Hey! Rent a Car" />
+      </div>
+
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+      </div>
+    </nav>
+  </header>
+
+
+
+
+
+<div id="popup-video" class="popup" style="display: flex;">
+  <div class="popup-content" style="position: relative;">
+    <span class="close" onclick="closePopupVideo()">&times;</span>
+    <video id="videoPlayer" width="100%" controls autoplay>
+      <source src="sobre/meta.mp4" type="video/mp4">
+      Seu navegador não suporta o elemento de vídeo.
+    </video>
+  </div>
+</div>
+
+
+
+
+
+
+  <section id="sobre-nos">
+  <div class="text">
+    <h2>Sobre Nós</h2>
+    <p>
+      O setor de transporte é responsável por cerca de 25% das emissões globais de gases de efeito estufa. A HEY Rent A Car surge como resposta sustentável a esse cenário, oferecendo carros 100% elétricos que não emitem CO₂.
+    </p>
+    <p>
+      Nossa missão é transformar a mobilidade urbana em uma aliada do meio ambiente. Com carros silenciosos e livres de combustíveis fósseis, buscamos melhorar a qualidade do ar e reduzir a poluição sonora nas cidades.
+    </p>
+  </div>
+  <div class="image-container">
+    <img src="sobre/03.png" alt="Carro Elétrico">
+  </div>
+</section>
+
+<!-- Quadros de Missão, Visão e Valores -->
+<section id="quadro-info">
+  <div class="info-box">
+    <div class="icon"><i class="fas fa-bullseye"></i></div>
+    <h3>Missão</h3>
+    <button onclick="showPopup('missao')">Saiba Mais</button>
+  </div>
+  <div class="info-box">
+    <div class="icon"><i class="fas fa-flag-checkered"></i></div>
+    <h3>Visão</h3>
+    <button onclick="showPopup('visao')">Saiba Mais</button>
+  </div>
+  <div class="info-box">
+    <div class="icon"><i class="fas fa-heart"></i></div>
+    <h3>Propósito</h3>
+    <button onclick="showPopup('proposito')">Saiba Mais</button>
+  </div>
+</section>
+
+<!-- Pop-ups -->
+<div id="popup-missao" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup('missao')">&times;</span>
+    <h2>Missão</h2>
+    <p>A HEY Rent A Car tem como missão enfrentar a crise climática atual, promovendo a mobilidade elétrica como uma solução imediata para reduzir as emissões de gases de efeito estufa e preservar o meio ambiente. Oferecendo locação de veículos elétricos, a empresa busca incentivar escolhas sustentáveis e proteger os destinos turísticos do Brasil, garantindo um futuro próspero para as próximas gerações. Com o compromisso de reduzir o impacto ambiental, a HEY apoia a transformação social, visando um planeta mais seguro, limpo e justo, alinhando-se às metas globais de redução de emissões e sustentabilidade até 2050.</p>
+    <button class="btn-close" onclick="closePopup('missao')">Fechar</button>
+  </div>
+</div>
+
+<div id="popup-visao" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup('visao')">&times;</span>
+    <h2>Visão</h2>
+    <p>A HEY Rent A Car reconhece a urgência da crise climática, cujos efeitos já impactam ecossistemas, populações vulneráveis e regiões brasileiras como o Nordeste, Sudeste e a Amazônia. A empresa destaca o conceito de racismo ambiental, onde países menos responsáveis pelas emissões sofrem mais.
+
+Como parte da solução, a HEY aposta na mobilidade elétrica para reduzir emissões de CO₂, especialmente nos grandes centros urbanos. Apoia políticas ambientais do governo brasileiro, como o RenovaBio e o Programa MOVER, e busca neutralizar suas emissões, com a meta de obter o Selo Carbono Zero.
+
+Seu compromisso com o marketing verde visa atender consumidores conscientes e consolidar sua liderança em mobilidade sustentável no Brasil.</p>
+    <button class="btn-close" onclick="closePopup('visao')">Fechar</button>
+  </div>
+</div>
+
+<div id="popup-proposito" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup('proposito')">&times;</span>
+    <h2>Propósito</h2>
+    <p>O propósito de combater as mudanças climáticas é mitigar os impactos devastadores do aquecimento global, como a extinção de espécies, o derretimento das geleiras, e a elevação do nível dos oceanos. O aumento da emissão de gases de efeito estufa tem intensificado o aquecimento da Terra, afetando a segurança alimentar, hídrica, a saúde humana e gerando desastres naturais. Com metas claras e alinhadas aos planos globais, a HEY Rent a Car se compromete a reduzir a emissão de CO₂ até 2030, visando um futuro sustentável e a preservação do planeta.</p>
+    <button class="btn-close" onclick="closePopup('proposito')">Fechar</button>
+  </div>
+</div>
+
+
+
+
+  <section id="compromisso">
+    <div class="text">
+      <h2>Compromisso com a Descarbonização</h2>
+      <p>
+        Através de iniciativas como o CBIO, MOVER e IPI Verde, a HEY se compromete com a redução de emissões e o incentivo ao uso de fontes renováveis. Cada quilômetro rodado com nossos veículos representa uma escolha consciente.
+      </p>
+    </div>
+    <div class="image-container">
+      <img src="sobre/01.jfif" alt="Descarbonização">
+    </div>
+  </section>
+
+  <section id="tecnologia">
+    <div class="text">
+      <h2>Tecnologia e Sustentabilidade</h2>
+      <p>
+        Utilizamos blockchain e GOV.BR para garantir segurança e agilidade na locação de veículos. Inovação e consciência ambiental são a base da experiência HEY.
+      </p>
+    </div>
+    <div class="image-container">
+      <img src="sobre/02.png" alt="Tecnologia Sustentável">
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Hey! Rent a Car. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+
+
+
+function closePopupVideo() {
+  const popup = document.getElementById("popup-video");
+  const video = document.getElementById("videoPlayer");
+  popup.style.display = "none";
+  video.pause();
+  video.currentTime = 0;
+}
+
+window.onload = function () {
+  const popup = document.getElementById("popup-video");
+  const video = document.getElementById("videoPlayer");
+  popup.style.display = "flex";
+  video.play();
+};
+
+
+
+
+
+
+
+function showPopup(info) {
+  const popup = document.getElementById(`popup-${info}`);
+  popup.style.display = "flex";
+}
+
+function closePopup(info) {
+  const popup = document.getElementById(`popup-${info}`);
+  popup.style.display = "none";
+}
+
+
+
+function showPopup(info) {
+  const popup = document.getElementById(`popup-${info}`);
+  popup.style.display = "flex";
+}
+
+function closePopup(info) {
+  const popup = document.getElementById(`popup-${info}`);
+  popup.style.display = "none";
+}
+
+
+    function toggleMenu() {
+      const nav = document.getElementById("navLinks");
+      nav.classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
