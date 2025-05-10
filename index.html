@@ -548,7 +548,21 @@
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
+  animation: pulse 1.5s infinite;
 }
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 
 /* Seção de Notícias */
 .news-section {
@@ -732,7 +746,7 @@ button {
 
 .popup-content {
   position: relative;
-  background: white;
+  background: black;
   border-radius: 12px;
   overflow: hidden;
   animation: slideUp 0.4s ease;
@@ -751,11 +765,11 @@ button {
   position: absolute;
   top: 10px;
   right: 14px;
-  background: transparent;
+  background: darkgreen;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #333;
+  color: white;
 }
 
 .desktop-only { display: block; }
@@ -1058,6 +1072,15 @@ button {
         <a href="blockchain.html" target="_blank">Leia mais &raquo;</a>
       </div>
     </article>
+
+    <article class="news-card">
+      <img src="materia/verde.jpg" alt="Notícia 2">
+      <div class="news-content">
+        <h3 class="headline">Hey - Na era da Economia Verde</h3>
+        <p>O Brasil tem potencial para liderar a economia verde, mas enfrenta desafios. A Amazônia e os veículos elétricos são centrais para reduzir emissões e promover sustentabilidade.</p>
+        <a href="economia.html" target="_blank">Leia mais &raquo;</a>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -1088,17 +1111,20 @@ button {
       
       <!-- Botão de Políticas de Privacidade -->
       <a href="politicas.html" style="display:inline-block; margin:10px 0; padding:8px 16px; background:#4CAF50; color:#fff; border-radius:8px; text-decoration:none;">Políticas de Privacidade</a>
-      
+
+      <!-- Termo de Uso -->
+      <a href="uso.html" style="display:inline-block; margin:10px 0; padding:8px 16px; background:#4CAF50; color:#fff; border-radius:8px; text-decoration:none;">Termos de Uso</a>
+
+      <!-- Termo de Aceite -->
+      <a href="aceite.html" style="display:inline-block; margin:10px 0; padding:8px 16px; background:#4CAF50; color:#fff; border-radius:8px; text-decoration:none;">Termos de Aceite</a>
+      <br>
+      <br>
       <div class="social">
         <a href="#"><img src="logos/instam.png" alt="Instagram" /></a>
         <a href="#"><img src="logos/face.png" alt="Facebook" /></a>
         <a href="#"><img src="logos/tiktok.png" alt="TikTok" /></a>
       </div>
-      <div class="payments">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Visa.svg/1200px-Visa.svg.png" alt="Visa" />
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard" />
-        <img src="logos/pix.png" alt="Pix" />
-      </div>
+<br>
       <div class="seals">
         <img src="logos/blindado.png" alt="Site Blindado" />
       </div>
