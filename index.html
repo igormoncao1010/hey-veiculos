@@ -145,29 +145,64 @@
     }
 
     .differentials {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      padding: 4rem 2rem;
-      background: var(--background);
-    }
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 2rem;
+  background-color: #f8fff9; /* fundo branco esverdeado suave */
+}
 
-    .differential {
-      background: var(--white);
-      padding: 2rem;
-      border-radius: var(--radius);
-      box-shadow: var(--card-shadow);
-      transition: transform 0.3s;
-    }
+.differential-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: contents; /* permite que os <li> funcionem no grid da section */
+}
 
-    .differential:hover {
-      transform: translateY(-5px);
-    }
+.differential {
+  background-color: #ffffff;
+  border: 1px solid #d6f5d6;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.05);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-    .differential h3 {
-      color: var(--primary-color);
-      margin-bottom: 1rem;
-    }
+.differential:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 128, 0, 0.1);
+}
+
+.differential img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1rem;
+}
+
+.differential h3 {
+  color: #008000; /* verde escuro */
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.differential p {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Oculta o título acessível */
+.visually-hidden {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
 
     .car-list {
       display: grid;
@@ -681,7 +716,71 @@ button {
 
 
 
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none; /* Importante: começa invisível */
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
 
+.popup-content {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  animation: slideUp 0.4s ease;
+  max-width: 90%;
+  width: 400px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.popup-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.desktop-only { display: block; }
+.mobile-only { display: none; }
+
+@media (max-width: 768px) {
+  .desktop-only { display: none; }
+  .mobile-only { display: block; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@media (min-width: 769px) {
+  .popup-content {
+    width: 700px; /* 400px + 40% = 560px */
+  }
+}
 
 
 
@@ -703,6 +802,27 @@ button {
       <a href="faq.html">FAQ</a>
     </nav>
   </header>
+
+
+
+<div class="popup-overlay" id="popup" style="display: none;">
+  <div class="popup-content">
+    <button class="close-btn" onclick="closePopup()">×</button>
+    <a href="uni.html"><img 
+      src="popup/01.png" 
+      alt="Promoção Desktop" 
+      class="popup-img desktop-only" 
+    /></a>
+   <a href="uni.html"> <img 
+      src="popup/02.png" 
+      alt="Promoção Mobile" 
+      class="popup-img mobile-only" 
+    /></a>
+  </div>
+</div>
+
+
+
 
 
 
@@ -738,28 +858,35 @@ button {
 
 
 
-  <section class="differentials">
-    <div class="differential">
-      <h3>Menos Impacto Ambiental</h3>
-      <p>Com os carros elétricos, você contribui diretamente para a redução de emissões de CO2.</p>
-    </div>
-    <div class="differential">
-      <h3>Economia de Combustível</h3>
+  <section class="differentials" aria-labelledby="section-title">
+  <ul class="differential-list">
+    <li class="differential">
+      <img src="diferencial/01.jfif" alt="Ícone de uma folha representando impacto ambiental" />
+      <h3>Menos CO2</h3>
+      <p>Com os carros elétricos, você contribui diretamente para a redução de emissões de CO₂.</p>
+    </li>
+    <li class="differential">
+      <img src="diferencial/02.jfif" alt="Ícone de moeda representando economia" />
+      <h3>Economia</h3>
       <p>Os carros elétricos têm custos de manutenção e carregamento bem mais baixos.</p>
-    </div>
-    <div class="differential">
-      <h3>Silêncio e Conforto</h3>
+    </li>
+    <li class="differential">
+      <img src="diferencial/03.jfif" alt="Ícone de assento representando conforto" />
+      <h3>Conforto</h3>
       <p>Condução suave, silenciosa e sem vibrações — uma experiência moderna.</p>
-    </div>
-    <div class="differential">
-      <h3>Inovação e Tecnologia</h3>
+    </li>
+    <li class="differential">
+      <img src="diferencial/04.jfif" alt="Ícone de chip representando tecnologia" />
+      <h3>Tecnologia</h3>
       <p>Recursos modernos, conectividade e o melhor da mobilidade elétrica.</p>
-    </div>
-  </section>
-
-  <section class="car-title">
-  <h2>Conheça nossa frota!</h2>
+    </li>
+  </ul>
 </section>
+
+
+  <section class="hero">
+    <h1>Conheça Nossa Frota</h1>
+  </section>
 
 
   <section class="car-list">
@@ -991,7 +1118,15 @@ button {
     /* nova atualização aqui... */
 
 
-    
+      document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(function () {
+      document.getElementById("popup").style.display = "flex";
+    }, 5000); // Delay de 3 segundos
+  });
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
 
 
 
