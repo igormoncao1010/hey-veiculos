@@ -803,11 +803,114 @@ button {
 
 
 
+.testimonials1 {
+  background: #f0fdf4;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.testimonials1 h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #2e7d32;
+}
+
+.slider-wrapper {
+  overflow: hidden;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.slider1 {
+  display: flex;
+  width: calc(500px * 5);
+  animation: slide-mobile 60s linear infinite;
+}
+
+.card {
+  flex: 0 0 380px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  border: 1px solid #d6ecd6;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 3px solid #4caf50;
+}
+
+.card h3 {
+  margin: 10px 0 5px;
+  color: #2e7d32;
+  font-size: 1.1rem;
+}
+
+.city {
+  color: #66bb6a;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.stars {
+  color: #fbc02d;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Animação MOBILE: 1 card por vez, volta no final */
+@keyframes slide-mobile {
+  0%   { transform: translateX(0); }
+  20%  { transform: translateX(-500px); }
+  40%  { transform: translateX(-1000px); }
+  60%  { transform: translateX(-1500px); }
+  80%  { transform: translateX(-2000px); }
+  100% { transform: translateX(0); }
+}
+
+/* DESKTOP: 3 cards visíveis */
+@media (min-width: 768px) {
+  .slider-wrapper {
+    max-width: 1500px;
+  }
+
+  .slider1 {
+    animation: slide-desktop 60s linear infinite;
+  }
+
+  .card {
+    margin: 0 10px;
+    flex: 0 0 33.3333%;
+  }
+
+  @keyframes slide-desktop {
+    0%   { transform: translateX(0); }
+    25%  { transform: translateX(-33.3333%); }
+    50%  { transform: translateX(-66.6666%); }
+    75%  { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+  }
+}
   </style>
 </head>
 <body>
   <header>
 <link rel="icon" href="logos/icon.ico" type="image/x-icon">
+
 
     <div class="logo"><img src="logos/logo.png" alt="Logo Hey Rent" /></div>
     <nav>
@@ -834,11 +937,6 @@ button {
     /></a>
   </div>
 </div>
-
-
-
-
-
 
 
 <div class="banner-slider">
@@ -869,7 +967,6 @@ button {
   <section class="hero">
     <h1>Hey Rent a Car, a sua locadora verde!</h1>
   </section>
-
 
 
   <section class="differentials" aria-labelledby="section-title">
@@ -1020,39 +1117,62 @@ button {
 
 
 
-  <section class="testimonials">
-    <div class="testimonial">
-      <img src="clientes/joão.jfif" alt="Cliente João" />
-      <div class="testimonial-content">
-        <div class="testimonial-name">João Silva</div>
-        <div class="testimonial-city">Lago Sul</div>
+
+ 
+
+<section class="testimonials1">
+   <div class="news-header"><h2>O que dizem os clientes</h2>
+    <hr>
+  </div>
+  <div class="slider-wrapper">
+    <div class="slider1">
+      <div class="card">
+        <img src="clientes/01.jpg" alt="Ana Souza">
+        <h3>Ana Souza</h3>
+        <p class="city">São Paulo, SP</p>
         <div class="stars">★★★★★</div>
-        <p>Serviço excelente! O carro chegou limpo e carregado. Voltarei a alugar com certeza.</p>
+        <p>Serviço excelente, atendimento rápido e cordial. Recomendo muito!</p>
       </div>
-    </div>
-    <div class="testimonial">
-      <img src="clientes/maria.jfif" alt="Cliente Maria" />
-      <div class="testimonial-content">
-        <div class="testimonial-name">Maria Oliveira</div>
-        <div class="testimonial-city">Samambaia</div>
+      <div class="card">
+        <img src="clientes/02.jfif" alt="Carlos Mendes">
+        <h3>Carlos Mendes</h3>
+        <p class="city">Rio de Janeiro, RJ</p>
         <div class="stars">★★★★☆</div>
-        <p>Adorei a experiência com o carro elétrico. Muito confortável e econômico!</p>
+        <p>Carro limpo e ótimo estado. Voltarei a alugar com certeza.</p>
       </div>
-    </div>
-    <div class="testimonial">
-      <img src="clientes/helena.jfif" alt="Cliente Maria" />
-      <div class="testimonial-content">
-        <div class="testimonial-name">Helena</div>
-        <div class="testimonial-city">Ceilândia</div>
+      <div class="card">
+        <img src="clientes/03.jpg" alt="Juliana Rocha">
+        <h3>Juliana Rocha</h3>
+        <p class="city">Belo Horizonte, MG</p>
+        <div class="stars">★★★★★</div>
+        <p>Facilidade na reserva e ótimo custo-benefício. Adorei!</p>
+      </div>
+      <div class="card">
+        <img src="clientes/04.jpg" alt="Marcelo Lima">
+        <h3>Marcelo Lima</h3>
+        <p class="city">Curitiba, PR</p>
         <div class="stars">★★★★☆</div>
-        <p>Equipe super atenciosa e carro impecável! Recomendo muito a Hey Rent.</p>
+        <p>Prático e rápido. O suporte foi muito eficiente.</p>
+      </div>
+      <div class="card">
+        <img src="clientes/05.jpg" alt="Renata Alves">
+        <h3>Renata Alves</h3>
+        <p class="city">Porto Alegre, RS</p>
+        <div class="stars">★★★★★</div>
+        <p>A melhor locadora que já usei! Super recomendo.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+
+
+
+
+  
 
 <section class="news-section">
-  <div class="news-header">
-    <h2>Últimas Notícias</h2>
+  <div class="news-header"><h2>Últimas Notícias</h2>
     <hr>
   </div>
   <div class="news-grid">
