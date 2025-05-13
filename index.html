@@ -411,33 +411,22 @@
  /* nova atualização aqui... */
 
 
- /* Seção Desconto Universitário */
-.desconto-universitario {
-  background-image: url('mini banner/02.jpg'); /* Altere para a URL da imagem desejada */
-  background-size: cover;
-  background-position: center;
-  padding: 4.8rem 2rem; /* Diminuído o padding em 20% */
+
+
+.banner-com-imagem {
+  opacity: 0;
+  transform: translateX(100%); /* começa fora da tela, à direita */
+  transition: all 1s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  color: var(--white);
+  min-height: 300px; /* ajuste conforme sua imagem/altura desejada */
 }
 
-.desconto-universitario .banner-content {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 1.6rem; /* Diminuído o padding em 20% */
-  border-radius: var(--radius);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.desconto-universitario .banner-content h2 {
-  font-size: 2rem; /* Diminuído o tamanho da fonte em 20% */
-  margin-bottom: 1rem;
-  font-family: 'Orbitron', sans-serif;
-}
-
-.desconto-universitario .banner-content p {
-  font-size: 1rem; /* Diminuído o tamanho da fonte em 20% */
-  margin-bottom: 1.6rem; /* Ajustado o espaçamento */
+.banner-com-imagem.animated {
+  opacity: 1;
+  transform: translateX(0); /* desliza para o centro */
 }
 
 
@@ -448,36 +437,6 @@
 
 
 
-
-
-/* Banner Desconto Melhor Idade */
-.desconto-melhor-idade {
-  background-image: url('mini banner/01.jpg'); /* Altere para a URL da imagem desejada */
-  background-size: cover;
-  background-position: center;
-  padding: 6rem 2rem;
-  text-align: center;
-  color: var(--white);
-}
-
-.desconto-melhor-idade .banner-content {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 2rem;
-  border-radius: var(--radius);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.desconto-melhor-idade .banner-content h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  font-family: 'Orbitron', sans-serif;
-}
-
-.desconto-melhor-idade .banner-content p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-}
 
 
 
@@ -905,6 +864,62 @@ button {
     100% { transform: translateX(0); }
   }
 }
+
+
+
+
+
+
+.desconto-melhor-idade {
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.banner-com-imagem {
+  width: 90%;
+  max-width: 800px;
+  min-height: 300px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  opacity: 0;
+  transform: translateX(100px);
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.banner-com-imagem.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.banner-content {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px 30px;
+  border-radius: 8px;
+}
+
+/* Delays */
+.banner-com-imagem.delay-0 {
+  transition-delay: 0s;
+}
+
+.banner-com-imagem.delay-1 {
+  transition-delay: 0.5s;
+}
+
+
+
   </style>
 </head>
 <body>
@@ -1024,94 +1039,30 @@ button {
 </section>
 
 
-  
 
 
-  <section class="desconto-universitario">
-  <div class="banner-com-imagem">
-    <div class="banner-content">
-      <h2>Desconto Universitário</h2>
-      <p>Descontos de até 50% para universitários!</p>
-      
-    </div>
-  </div>
-</section>
-
-<!-- Pop-up Desconto Universitário -->
-<div id="popup-desconto-universitario" class="popup">
-  <div class="popup-content">
-    <button id="close-popup-universitario" class="close-popup">×</button>
-    <h2>🎓 CNH UNIVERSITÁRIA 🚗</h2>
-    <p><strong>A PRIMEIRA DO BRASIL!</strong></p>
-
-    <h3>✅ 50% DE DESCONTO na locação de veículos para estudantes universitários!</h3>
-
-    <h3>🧑‍🎓 Você estuda. A gente acelera o seu caminho!</h3>
-
-    <p><strong>📌 Vantagens:</strong></p>
-    <ul>
-      <li>Desconto REAL</li>
-      <li>Benefício LEGÍTIMO</li>
-      <li>Reconhecimento para quem está construindo o futuro</li>
-    </ul>
-
-    <p><strong>📚 Inspirado no Estatuto da Juventude e na Lei da Meia-Entrada.</strong></p>
-
-    <p><strong>🛡️ Mobilidade acessível, sem enrolação:</strong></p>
-    <ul>
-      <li>Sem fraudes</li>
-      <li>Sem burocracia</li>
-      <li>Total segurança</li>
-    </ul>
-
-    <p><strong>🔒 100% seguro</strong></p>
-    <p><strong>🔥 Válido em todo o Brasil</strong></p>
-
-    <p><strong>🚀 Solicite agora e economize HOJE!</strong></p>
-  </div>
-</div>
-<br>
 
 
-  <section class="desconto-melhor-idade">
-  <div class="banner-com-imagem">
+
+
+<section class="desconto-melhor-idade">
+  <!-- Primeiro banner -->
+  <div class="banner-com-imagem slide-in delay-0" style="background-image: url('mini banner/01.JPG');">
     <div class="banner-content">
       <h2>Desconto Melhor Idade</h2>
       <p>Descontos de até 50% para melhor idade 60+</p>
-      
+    </div>
+  </div>
+
+  <!-- Segundo banner -->
+  <div class="banner-com-imagem slide-in delay-1" style="background-image: url('mini banner/02.JPG');">
+    <div class="banner-content">
+      <h2>Desconto Universitário</h2>
+      <p>Descontos de até 50% para universitários</p>
     </div>
   </div>
 </section>
 
-<!-- Pop-up -->
-<div id="popup-desconto" class="popup">
-  <div class="popup-content">
-    <button id="close-popup" class="close-popup">×</button>
-    <h2>🚗💥 GERAÇÃO X MAIS 💥🚗</h2>
-    <p><strong>50% DE DESCONTO</strong> para quem tem 60 anos ou mais!</p>
-
-    <h3>🎉 Viajar não tem idade!</h3>
-
-    <p><strong>📌 Por que aproveitar?</strong></p>
-    <ul>
-      <li>Liberdade e conforto</li>
-      <li>Reviva momentos ou crie novas memórias</li>
-      <li>Viaje mais gastando menos!</li>
-    </ul>
-
-    <p><strong>📌 Como garantir?</strong></p>
-    <ul>
-      <li>Cadastre-se na plataforma</li>
-      <li>Solicite a CNH do Idoso</li>
-      <li>Apresente um documento com idade (RG ou INSS)</li>
-    </ul>
-
-    <p><strong>⚡ Vantagem Exclusiva:</strong><br> Mobilidade com conforto, segurança e economia.</p>
-
-    <p><strong>⏰ A hora é agora!</strong></p>
-    <p><strong>🌟 HEY Rent A Car – Viaje com liberdade!</strong></p>
-  </div>
-</div>
 
 
 
@@ -1260,6 +1211,26 @@ button {
   </div>
 
   <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const banners = document.querySelectorAll(".slide-in");
+
+    const observer = new IntersectionObserver(
+      function (entries, observer) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animated");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+
+    banners.forEach((banner) => observer.observe(banner));
+  });
 
     /* nova atualização aqui... */
 
