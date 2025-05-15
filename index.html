@@ -192,6 +192,25 @@
   line-height: 1.5;
 }
 
+.differential {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.differential.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+
+
+
+
+
+
+
 /* Oculta o título acessível */
 .visually-hidden {
   position: absolute;
@@ -763,16 +782,19 @@ button {
 
 
 .testimonials1 {
-  background: #f0fdf4;
+  background: url('back/01.png') no-repeat center center;
+  background-size: cover;
   padding: 40px 20px;
   text-align: center;
   font-family: sans-serif;
+  color: #fff; /* deixa o texto branco por cima da imagem */
+  position: relative;
 }
 
 .testimonials1 h2 {
   font-size: 2rem;
-  margin-bottom: 30px;
-  color: #2e7d32;
+  margin-bottom: 10px;
+  color: white;
 }
 
 .slider-wrapper {
@@ -920,6 +942,137 @@ button {
 
 
 
+
+
+
+
+
+
+
+
+.car-list2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .car2 {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 1rem;
+      opacity: 0;
+      transform: translateX(100px);
+      transition: all 0.8s ease-out;
+    }
+
+    .car2.visible2 {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .car-image-wrapper2 {
+      position: relative;
+    }
+
+    .car2 img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0;
+    }
+
+    .car-year2 {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background-color: #008F4C;
+      color: white;
+      padding: 4px 8px;
+      font-size: 0.85rem;
+      border-radius: 4px;
+    }
+
+    .car-content2 {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+
+    .car2.visible2 .car-content2 {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .car-reviews2 {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #f1c40f;
+      margin-top: 0.5rem;
+    }
+
+    .car2 h3 {
+      margin: 0.8rem auto 0.4rem;
+      text-align: center;
+      font-size: 1.2rem;
+      color: #008F4C;
+    }
+
+    .price2 {
+      text-align: center;
+      font-weight: bold;
+      color: black;
+      margin-bottom: 0.8rem;
+    }
+
+    .car2 hr {
+      border: 0;
+      height: 1px;
+      background-color: #ddd;
+      margin: 0 1rem 0.5rem;
+    }
+
+    .car-options2 {
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      margin: 0.5rem 0 1rem;
+      padding: 0 0.5rem;
+    }
+
+    .option2 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 0.8rem;
+      color: #008F4C;
+    }
+
+    .option2 img {
+      width: 24px;
+      height: 24px;
+      margin-bottom: 4px;
+    }
+
+    .metaverso-button2 {
+      align-self: center;
+      background-color: #008F4C;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: auto;
+      transition: background-color 0.3s;
+    }
+
+    .metaverso-button2:hover {
+      background-color: red;
+    }
   </style>
 </head>
 <body>
@@ -1015,30 +1168,73 @@ button {
   </section>
 
 
-  <section class="car-list">
-  <div class="car">
-    <img src="carros/tesla.png" alt="Tesla Model 3" />
-    <h3>EH7</h3>
-    <p>Sedan de luxo com grande autonomia para viagens longas ou para poucas recargas na semana.</p>
-   
+
+<section class="car-list2">
+  <div class="car2">
+    <div class="car-image-wrapper2">
+      <img src="carros/bolt.png" alt="Tesla Model 3" />
+      <span class="car-year2">2025</span>
+    </div>
+
+    <div class="car-reviews2 car-content2">★★★★★</div>
+    <h3 class="car-content2">HONGQI - E-HS9</h3>
+    <p class="price2 car-content2">R$ 8.600/mês</p>
+    <hr class="car-content2" />
+
+    <div class="car-options2 car-content2">
+      <div class="option2"><img src="icones/gps.png" alt="GPS" />GPS</div>
+      <div class="option2"><img src="icones/carga.png" alt="USB" />USB</div>
+      <div class="option2"><img src="icones/bluetooth.png" alt="Bluetooth" />Bluetooth</div>
+      <div class="option2"><img src="icones/ar.png" alt="Ar" />Ar Cond.</div>
+    </div>
+
+
+    <a href="https://www.hongqi-auto.com/3D/abbr/3Dexhibition/ehs9_720/index.html" class="metaverso-button2 car-content2">METAVERSO</a>
   </div>
 
-  <div class="car">
-    <img src="carros/leaf.png" alt="Nissan Leaf" />
-    <h3>E-QM5</h3>
-    <p>Eficiente e robusto como um elétrico de verdade deve ser.</p>
-    
+  <div class="car2">
+    <div class="car-image-wrapper2">
+      <img src="carros/tesla.png" alt="Tesla Model 3" />
+      <span class="car-year2">2025</span>
+    </div>
+
+    <div class="car-reviews2 car-content2">★★★★★</div>
+    <h3 class="car-content2">HONGQI - EH7</h3>
+    <p class="price2 car-content2">R$ 4.500/mês</p>
+    <hr class="car-content2" />
+
+    <div class="car-options2 car-content2">
+      <div class="option2"><img src="icones/gps.png" alt="GPS" />GPS</div>
+      <div class="option2"><img src="icones/carga.png" alt="USB" />USB</div>
+      <div class="option2"><img src="icones/bluetooth.png" alt="Bluetooth" />Bluetooth</div>
+      <div class="option2"><img src="icones/ar.png" alt="Ar" />Ar Cond.</div>
+    </div>
+
+    <a href="https://www.youtube.com/embed/41rHzFtVElg?si=tLeTg8_B0Kp3btGX" class="metaverso-button2 car-content2">CONHEÇA</a>
   </div>
 
-  <div class="car">
-    <img src="carros/bolt.png" alt="Chevy Bolt" />
-    <h3>E-HS9</h3>
-    <p>SUV de luxo com grande autonomia para viagens em família.</p>
-    <a href="https://www.hongqi-auto.com/3D/abbr/3Dexhibition/ehs9_720/index.html" class="metaverso-button">METAVERSO</a>
+  <div class="car2">
+    <div class="car-image-wrapper2">
+      <img src="carros/leaf.png" alt="Tesla Model 3" />
+      <span class="car-year2">2025</span>
+    </div>
+
+    <div class="car-reviews2 car-content2">★★★★★</div>
+    <h3 class="car-content2">HONGQI - E-QM5</h3>
+    <p class="price2 car-content2">R$ 5.450/mês</p>
+    <hr class="car-content2" />
+
+    <div class="car-options2 car-content2">
+      <div class="option2"><img src="icones/gps.png" alt="GPS" />GPS</div>
+      <div class="option2"><img src="icones/carga.png" alt="USB" />USB</div>
+      <div class="option2"><img src="icones/bluetooth.png" alt="Bluetooth" />Bluetooth</div>
+      <div class="option2"><img src="icones/ar.png" alt="Ar" />Ar Cond.</div>
+    </div>
+
+    <a href="https://www.youtube.com/embed/WCK234ac06A?si=VDtsl_arUCO55-Xl" class="metaverso-button2 car-content2">CONHEÇA</a>
   </div>
 </section>
-
-
+  
 
 
 
@@ -1341,7 +1537,39 @@ setInterval(function() {
 
 
 
-    
+   const observer2 = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible2');
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
+
+  document.querySelectorAll('.car2').forEach(card => {
+    observer2.observe(card);
+  });
+
+
+
+
+
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // garante que só anima uma vez
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll('.differential').forEach(el => {
+    observer.observe(el);
+  });
   </script>
 
 
