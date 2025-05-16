@@ -1083,6 +1083,181 @@ button {
       border-radius: 3px;
       padding: 5px;
     }
+
+
+
+
+
+
+
+
+.diferenciais {
+  background: url('back/04.png') no-repeat center center;
+  background-size: cover;
+
+  color: #fff;
+  padding: 60px 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.diferenciais.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.diferenciais-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+  align-items: stretch;
+}
+
+/* Carro à esquerda */
+.diferenciais-imagem {
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.diferenciais-imagem img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.diferenciais-conteudo {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Conteúdo (título, ícones, preços) */
+.texto-e-icones {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Botão abaixo dos preços, alinhado à direita */
+.botao-direita {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.diferenciais-conteudo h2 {
+  font-size: 2rem;
+}
+
+.diferenciais-conteudo p {
+  font-size: 1.1rem;
+}
+
+/* Ícones */
+.icones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+}
+
+.icone-box {
+  background-color: #111;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.icone-box:hover {
+  transform: scale(1.05);
+}
+
+.icone-box img {
+  max-width: 40px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icone-box span {
+  font-size: 14px;
+  color: #fff;
+  margin-top: 5px;
+  display: block;
+  text-align: center;
+}
+
+/* Preços */
+.precos p {
+  margin: 0;
+}
+
+.preco-destaque {
+  font-size: 24px;
+  color: #00ff88;
+  font-weight: bold;
+}
+
+/* Botão fixado à direita */
+.botao-direita {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+.botao-direita button {
+  background-color: #00ff88;
+  color: #000;
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.botao-direita button:hover {
+  background-color: #00cc6e;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .diferenciais-container {
+    flex-direction: column;
+  }
+
+  .diferenciais-conteudo {
+    align-items: center;
+  }
+
+  .botao-direita {
+    justify-content: center;
+  }
+
+  .icones-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .diferenciais-conteudo h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .diferenciais-conteudo p {
+    text-align: center;
+  }
+}
+
+
   </style>
 </head>
 <body>
@@ -1270,6 +1445,49 @@ button {
 </section>
 
 
+
+
+
+
+
+
+
+<section class="diferenciais hidden">
+  <div class="diferenciais-container">
+    
+    <!-- Carro à esquerda -->
+    <div class="diferenciais-imagem">
+      <img src="carros/01.png" alt="Carro" />
+    </div>
+
+    <!-- Conteúdo à direita -->
+    <div class="diferenciais-conteudo">
+      <div class="texto-e-icones">
+        <h2>HONHGQI E-HS9</h2>
+        <p>Experimente o ápice do luxo e inovação com o Hongqi E-HS9. Este SUV elétrico combina design imponente, interior sofisticado e tecnologia de ponta para uma condução incomparável. Com autonomia de até 660 km e desempenho excepcional, redefine o conceito de mobilidade premium.</p>
+
+        <div class="icones-grid">
+          <div class="icone-box"><img src="icones/01.png"><span>Piloto automático adaptativo</span></div>
+          <div class="icone-box"><img src="icones/02.png"><span>Assistência de permanência em faixa</span></div>
+          <div class="icone-box"><img src="icones/03.png"><span>Monitoramento de ponto cego</span></div>
+          <div class="icone-box"><img src="icones/04.png"><span>Frenagem autônoma de emergência</span></div>
+          <div class="icone-box"><img src="icones/05.png"><span>Climatização quadri-zonas</span></div>
+          <div class="icone-box"><img src="icones/06.png"><span>Carregamento sem fio</span></div>
+          <div class="icone-box"><img src="icones/07.png"><span>Teto solar panorâmico</span></div>
+          <div class="icone-box"><img src="icones/08.png"><span>Sistema de som premium</span></div>
+        </div>
+
+        <div class="precos">
+          <p><strong>Sem CNH Hey:</strong> R$ 8.600</p>
+          <p><strong>Com CNH Hey:</strong> <span class="preco-destaque">R$ 4.300</span></p>
+        </div>
+      </div>
+
+      
+    </div>
+    
+  </div>
+</section>
 
 
 
@@ -1579,6 +1797,30 @@ setInterval(function() {
 
   document.querySelectorAll('.differential').forEach(el => {
     observer.observe(el);
+  });
+
+
+
+
+
+
+ function solicitarProposta() {
+    alert("Proposta solicitada! Entraremos em contato.");
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const section = document.querySelector(".diferenciais");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          section.classList.add("show");
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(section);
   });
   </script>
 
